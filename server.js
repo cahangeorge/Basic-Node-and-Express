@@ -18,10 +18,10 @@ function getTheCurrentTimeString() {
   return new Date().toString();
 }
 
-app.get('/now', function(req, res, next) {
+app.get('/now', (req, res, next) => {
   req.time = getTheCurrentTimeString();
-  next('route');
-}, function(req, res) {
+  next();
+}, (req, res, next) => {
   res.json({ time: req.time});
 });
 
