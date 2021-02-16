@@ -14,6 +14,10 @@ app.use(function(req, res, next){
   next();
 });
 
+app.get('/now', function(req, res, next){
+  req.time = Date().toString();
+});
+
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
     var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
