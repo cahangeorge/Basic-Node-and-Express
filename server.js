@@ -20,10 +20,9 @@ function getTheCurrentTimeString() {
 
 app.get('/now', function(req, res, next) {
   req.time = getTheCurrentTimeString();
-  next();
-}, function(req, res, next) {
+  next('route');
+}, function(req, res) {
   res.json({ time: req.time});
-  next();
 });
 
 if (!process.env.DISABLE_XORIGIN) {
