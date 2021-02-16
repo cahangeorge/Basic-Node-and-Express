@@ -18,12 +18,11 @@ function getTheCurrentTimeString() {
   return new Date().toString();
 }
 
-app.get('/now', function(req, res, next) {
+app.get("/now", function(req, res, next) {
   req.time = getTheCurrentTimeString();
   next();
-},
-function(req, res) {
-  res.send({ time: req.time});
+}, function(req, res) {
+  res.json({ time: req.time});
 });
 
 if (!process.env.DISABLE_XORIGIN) {
