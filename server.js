@@ -14,13 +14,6 @@ app.use(function(req, res, next){
   next();
 });
 
-app.get('/now',function(req, res, next) {
-  req.time = new Date().toString();
-  next();
-}, function(req, res) {
-  res.json({ time: req.time });
-});
-
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
     var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
