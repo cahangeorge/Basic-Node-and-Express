@@ -14,12 +14,8 @@ app.use(function(req, res, next){
   next();
 });
 
-function getTimeString() {
-  return new Date().toString();
-}
-
 app.get("/now", function(req, res, next) {
-  req.time = getTimeString();
+  req.time = new Date().toString();
   next();
 }, function(req, res) {
   res.json({ time: req.time });
