@@ -14,11 +14,15 @@ app.use(function(req, res, next){
   next();
 });
 
+function getTimeString() {
+  return new Date().toString();
+}
+
 app.get('/now', (req, res, next) => {
-  req.time = new Date().toString();
+  req.time = getTimeString();
   next();
 }, (req, res) => {
-  res.json({ 'time' : req.time});
+  res.json({time: req.time});
 });
 
 if (!process.env.DISABLE_XORIGIN) {
