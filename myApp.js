@@ -28,6 +28,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
+app.post('/name', (req, res) => {
+  res.json({ name: req.body.first + " " + req.body.last });
+});
+
+
 
 
 
